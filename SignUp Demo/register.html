@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register — Noviq</title>
+<meta name="description" content="Create your Noviq profile — basic details, level of learning, and skills.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900,500,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="register.css">
+</head>
+
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav scrolled" id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">N</span>
+      Noviq
+    </a>
+    <div class="nav-links">
+      <a href="index.html#problem">Why Noviq</a>
+      <a href="index.html#solution">Features</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#testimonials">Stories</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../index.html" class="btn btn-ghost">Back to site</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+<section class="reg-section">
+  <div class="container reg-container">
+
+    <div class="reg-head reveal">
+      <h1 class="reg-title">Join <span class="muted">Noviq</span></h1>
+      <p class="reg-sub">Three quick steps to build your verified profile — takes less than two minutes.</p>
+    </div>
+
+    <!-- ============ STEPPER ============ -->
+    <div class="stepper reveal" id="stepper">
+      <div class="step-item active" data-step="1">
+        <div class="step-circle"><span class="step-num">1</span><svg class="step-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="step-label">Basic Details</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item" data-step="2">
+        <div class="step-circle"><span class="step-num">2</span><svg class="step-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="step-label">Level of Learning</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item" data-step="3">
+        <div class="step-circle"><span class="step-num">3</span><svg class="step-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="step-label">Skills</div>
+      </div>
+    </div>
+
+    <!-- ============ FORM CARD ============ -->
+    <form class="reg-card reveal" id="regForm" novalidate>
+
+      <!-- ---------- PAGE 1: BASIC DETAILS ---------- -->
+      <div class="reg-page active" data-page="1">
+        <div class="reg-page-head">
+          <h2>Basic details</h2>
+          <p>Tell us a little about yourself.</p>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="fullName">Full name <span class="req">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required>
+            <span class="field-error">Please enter your full name.</span>
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="jane@college.edu" required>
+            <span class="field-error">Please enter a valid email address.</span>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+            <span class="field-error">Please enter a valid phone number.</span>
+          </div>
+
+          <div class="field">
+            <label for="gradYear">Year of graduation <span class="req">*</span></label>
+            <select id="gradYear" name="gradYear" required>
+              <option value="" disabled selected>Select year</option>
+            </select>
+            <span class="field-error">Please select your graduation year.</span>
+          </div>
+
+          <div class="field field-wide">
+            <label for="collegeName">College name <span class="req">*</span></label>
+            <input type="text" id="collegeName" name="collegeName" placeholder="e.g. Indian Institute of Technology" required>
+            <span class="field-error">Please enter your college name.</span>
+          </div>
+
+          <div class="field">
+            <label for="linkedin">LinkedIn profile</label>
+            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username">
+            <span class="field-error">Please enter a valid URL.</span>
+          </div>
+
+          <div class="field">
+            <label for="github">GitHub profile</label>
+            <input type="url" id="github" name="github" placeholder="https://github.com/username">
+            <span class="field-error">Please enter a valid URL.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- PAGE 2: LEVEL OF LEARNING ---------- -->
+      <div class="reg-page" data-page="2">
+        <div class="reg-page-head">
+          <h2>Level of learning</h2>
+          <p>Pick the option that best describes where you are right now.</p>
+        </div>
+
+        <div class="level-list" role="radiogroup" aria-label="Level of learning">
+          <label class="level-card">
+            <input type="radio" name="level" value="Explorer" required>
+            <div class="level-radio"></div>
+            <div class="level-body">
+              <div class="level-title">Explorer</div>
+              <div class="level-desc">Just starting.</div>
+            </div>
+          </label>
+
+          <label class="level-card">
+            <input type="radio" name="level" value="Learner">
+            <div class="level-radio"></div>
+            <div class="level-body">
+              <div class="level-title">Learner</div>
+              <div class="level-desc">Understands fundamentals.</div>
+            </div>
+          </label>
+
+          <label class="level-card">
+            <input type="radio" name="level" value="Practitioner">
+            <div class="level-radio"></div>
+            <div class="level-body">
+              <div class="level-title">Practitioner</div>
+              <div class="level-desc">Can build small projects.</div>
+            </div>
+          </label>
+
+          <label class="level-card">
+            <input type="radio" name="level" value="Builder">
+            <div class="level-radio"></div>
+            <div class="level-body">
+              <div class="level-title">Builder</div>
+              <div class="level-desc">Has completed multiple real projects.</div>
+            </div>
+          </label>
+
+          <label class="level-card">
+            <input type="radio" name="level" value="Mentor">
+            <div class="level-radio"></div>
+            <div class="level-body">
+              <div class="level-title">Mentor</div>
+              <div class="level-desc">Teaches and guides others.</div>
+            </div>
+          </label>
+
+          <label class="level-card">
+            <input type="radio" name="level" value="Expert">
+            <div class="level-radio"></div>
+            <div class="level-body">
+              <div class="level-title">Expert</div>
+              <div class="level-desc">Demonstrates sustained expertise and impact.</div>
+            </div>
+          </label>
+        </div>
+        <span class="field-error level-error">Please select a level.</span>
+      </div>
+
+      <!-- ---------- PAGE 3: SKILLS ---------- -->
+      <div class="reg-page" data-page="3">
+        <div class="reg-page-head">
+          <h2>Skills</h2>
+          <p>Help us match you with the right people and opportunities.</p>
+        </div>
+
+        <div class="field-grid single">
+          <div class="field">
+            <label for="skillsHave">Your skills <span class="req">*</span></label>
+            <textarea id="skillsHave" name="skillsHave" rows="2" placeholder="e.g. Python, React, Figma, Public Speaking" required></textarea>
+            <span class="field-hint">Separate skills with commas.</span>
+            <span class="field-error">Please enter at least one skill.</span>
+            <div class="chip-row" id="skillsHaveChips"></div>
+          </div>
+
+          <div class="field">
+            <label for="skillsWant">Skills you want to learn</label>
+            <textarea id="skillsWant" name="skillsWant" rows="2" placeholder="e.g. Machine Learning, UI Design, Public Speaking"></textarea>
+            <span class="field-hint">Separate skills with commas.</span>
+            <div class="chip-row" id="skillsWantChips"></div>
+          </div>
+
+          <div class="field">
+            <label for="domain">Select domain <span class="req">*</span></label>
+            <select id="domain" name="domain" required>
+              <option value="" disabled selected>Choose a domain</option>
+              <option value="Software Development">Software Development</option>
+              <option value="Data Science & AI/ML">Data Science &amp; AI/ML</option>
+              <option value="Product Design (UI/UX)">Product Design (UI/UX)</option>
+              <option value="Product Management">Product Management</option>
+              <option value="Cybersecurity">Cybersecurity</option>
+              <option value="Cloud & DevOps">Cloud &amp; DevOps</option>
+              <option value="Marketing & Growth">Marketing &amp; Growth</option>
+              <option value="Business & Finance">Business &amp; Finance</option>
+              <option value="Content & Media">Content &amp; Media</option>
+              <option value="Robotics & Hardware">Robotics &amp; Hardware</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="field-error">Please select a domain.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- SUCCESS PAGE ---------- -->
+      <div class="reg-page" data-page="success">
+        <div class="success-block">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2>This was a Demo of the SignUp Process. No data will be saved or used.</h2>
+          <p>Thanks for registering with Noviq. We'll review your profile and be in touch shortly.</p>
+        </div>
+      </div>
+
+      <!-- ---------- NAV BUTTONS ---------- -->
+      <div class="reg-actions">
+        <button type="button" class="btn btn-secondary" id="backBtn">Back</button>
+        <button type="button" class="btn btn-primary" id="nextBtn">Continue</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn" style="display:none;">Submit registration</button>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+</main>
+
+<script src="register.js"></script>
+</body>
+</html>
