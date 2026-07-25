@@ -77,9 +77,7 @@
 
           <div class="field">
             <label for="gradYear">Year of graduation <span class="req">*</span></label>
-            <select id="gradYear" name="gradYear" required>
-              <option value="" disabled selected>Select year</option>
-            </select>
+            <input type="year" id="gradYear" name="gradYear" placeholder="2028" required>
             <span class="field-error">Please select your graduation year.</span>
           </div>
 
@@ -133,7 +131,7 @@
 
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase.js"></script>
 <script src="waitlist.js"></script>
-<script src="../SIgnUp Demo/register.js"></script>
 </body>
 </html>
