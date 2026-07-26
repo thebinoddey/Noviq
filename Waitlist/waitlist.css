@@ -1,0 +1,201 @@
+/* ============ WAITLIST PAGE ============ */
+
+.wl-hero{
+  padding:150px 0 60px;
+  position:relative;
+  text-align:center;
+}
+
+.wl-hero::before{
+  content:'';
+  position:absolute;
+  top:0; left:50%;
+  transform:translateX(-50%);
+  width:900px; height:520px;
+  background:radial-gradient(ellipse at top, rgba(79,70,229,0.16), transparent 65%);
+  pointer-events:none;
+  z-index:-1;
+}
+
+.wl-hero .eyebrow{ justify-content:center; margin-bottom:18px; }
+
+.wl-hero h1{
+  font-family:var(--font-display);
+  font-weight:700;
+  letter-spacing:-0.02em;
+  font-size:clamp(30px, 4.4vw, 46px);
+  max-width:640px;
+  margin:0 auto 16px;
+}
+
+.wl-hero p{
+  color:var(--text-secondary);
+  font-size:16.5px;
+  max-width:480px;
+  margin:0 auto;
+  line-height:1.6;
+}
+
+.wl-section{
+  padding:20px 0 140px;
+}
+
+.wl-wrap{
+  max-width:620px;
+  margin:0 auto;
+}
+
+.wl-panel{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:36px;
+  box-shadow:0 40px 100px -40px rgba(0,0,0,0.6);
+}
+
+.wl-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.wl-field{
+  margin-bottom:18px;
+}
+
+.wl-field label{
+  display:block;
+  font-size:13px;
+  font-weight:600;
+  color:var(--text);
+  margin-bottom:8px;
+}
+
+.wl-field label .opt{
+  color:var(--text-secondary);
+  font-weight:500;
+  font-size:12px;
+  margin-left:4px;
+}
+
+.wl-field input,
+.wl-field textarea{
+  width:100%;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  padding:12px 14px;
+  font-family:var(--font-body);
+  font-size:14.5px;
+  color:var(--text);
+  transition:border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.wl-field input::placeholder,
+.wl-field textarea::placeholder{
+  color:#6b6b73;
+}
+
+.wl-field input:focus,
+.wl-field textarea:focus{
+  outline:none;
+  border-color:var(--primary-hover);
+  background:#1d1d21;
+}
+
+.wl-field input.invalid,
+.wl-field textarea.invalid{
+  border-color:#EF4444;
+}
+
+.wl-error-text{
+  font-size:12px;
+  color:#F87171;
+  margin-top:6px;
+  display:none;
+}
+
+.wl-field.has-error .wl-error-text{ display:block; }
+
+.wl-field textarea{
+  resize:vertical;
+  min-height:96px;
+  line-height:1.5;
+}
+
+.wl-submit{
+  width:100%;
+  margin-top:8px;
+  padding:14px 24px;
+  font-size:15px;
+}
+
+.wl-submit[disabled]{
+  opacity:0.6;
+  pointer-events:none;
+}
+
+.wl-status{
+  margin-top:16px;
+  font-size:13.5px;
+  text-align:center;
+  display:none;
+}
+
+.wl-status.show{ display:block; }
+
+.wl-status.err{ color:#F87171; }
+.wl-status.ok{ color:var(--success); }
+
+.wl-note{
+  text-align:center;
+  font-size:13px;
+  color:var(--text-secondary);
+  margin-top:20px;
+}
+
+.wl-note a{ color:var(--primary-hover); font-weight:600; }
+.wl-note a:hover{ text-decoration:underline; }
+
+/* ---- Success state ---- */
+.wl-success{
+  display:none;
+  text-align:center;
+  padding:20px 6px;
+}
+
+.wl-success.show{ display:block; }
+
+.wl-success-icon{
+  width:56px; height:56px;
+  border-radius:50%;
+  background:rgba(34,197,94,0.14);
+  color:var(--success);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 18px;
+}
+
+.wl-success-icon svg{ width:26px; height:26px; }
+
+.wl-success h3{
+  font-family:var(--font-display);
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.wl-success p{
+  color:var(--text-secondary);
+  font-size:14.5px;
+  max-width:380px;
+  margin:0 auto;
+  line-height:1.6;
+}
+
+@media (max-width:640px){
+  .wl-hero{ padding:118px 0 44px; }
+  .wl-section{ padding:0 0 96px; }
+  .wl-panel{ padding:24px; border-radius:var(--radius); }
+  .wl-row{ grid-template-columns:1fr; gap:0; }
+}
