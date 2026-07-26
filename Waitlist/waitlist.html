@@ -3,135 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register — Noviq</title>
-<meta name="description" content="Create your Noviq profile — basic details, level of learning, and skills.">
+<title>Join the Waitlist — Noviq</title>
+<meta name="description" content="Join the Noviq waitlist and be first to build your verified Skill Passport.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900,500,400&display=swap">
 <link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="../SignUp Demo/register.css">
+<link rel="stylesheet" href="waitlist.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
 
 <!-- ============ NAV ============ -->
-<nav class="nav scrolled" id="nav">
+<nav class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="index.html" class="brand">
+    <a href="../index.html" class="brand">
       <span class="brand-mark">N</span>
       Noviq
     </a>
     <div class="nav-links">
-      <a href="index.html#problem">Why Noviq</a>
-      <a href="index.html#solution">Features</a>
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#testimonials">Stories</a>
+      <a href="../index.html#problem">Why Noviq</a>
+      <a href="../index.html#solution">Features</a>
+      <a href="../index.html#how">How it works</a>
+      <a href="../index.html#testimonials">Stories</a>
     </div>
     <div class="nav-actions">
-      <a href="../index.html" class="btn btn-ghost">Back to site</a>
+      <a href="waitlist.html" class="btn btn-primary">Join the Waitlist</a>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+        <svg id="menuIconOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        <svg id="menuIconClose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+      </button>
     </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html#problem">Why Noviq</a>
+    <a href="../index.html#solution">Features</a>
+    <a href="../index.html#how">How it works</a>
+    <a href="../index.html#testimonials">Stories</a>
   </div>
 </nav>
 
 <main id="top">
 
-<section class="reg-section">
-  <div class="container reg-container">
-
-    <div class="reg-head reveal">
-      <h1 class="reg-title">Join <span class="muted">Noviq</span> Waitlist</h1>
-      <p class="reg-sub">Join our Waitlist — takes less than two minutes.</p>
+  <!-- ============ WAITLIST HERO ============ -->
+  <section class="wl-hero">
+    <div class="container">
+      <span class="eyebrow">Early access</span>
+      <h1>Join the waitlist and build your Skill Passport first.</h1>
+      <p>Tell us a bit about yourself. We'll reach out as spots open up for your cohort.</p>
     </div>
+  </section>
 
+  <!-- ============ WAITLIST FORM ============ -->
+  <section class="wl-section">
+    <div class="container wl-wrap">
 
-    <!-- ============ FORM CARD ============ -->
-    <form class="reg-card reveal" id="regForm" novalidate>
+      <div class="wl-panel" id="wlPanel">
+        <form id="waitlistForm" novalidate>
 
-      <!-- ---------- PAGE 1: BASIC DETAILS ---------- -->
-      <div class="reg-page active" data-page="1">
-        <div class="reg-page-head">
-          <h2>Basic details</h2>
-          <p>Tell us a little about yourself.</p>
-        </div>
-
-        <div class="field-grid">
-          <div class="field">
-            <label for="fullName">Full name <span class="req">*</span></label>
-            <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required>
-            <span class="field-error">Please enter your full name.</span>
+          <div class="wl-field">
+            <label for="wlName">Full name</label>
+            <input type="text" id="wlName" name="name" placeholder="Ananya Rao" autocomplete="name" required>
+            <div class="wl-error-text">Please enter your full name.</div>
           </div>
 
-          <div class="field">
-            <label for="email">Email <span class="req">*</span></label>
-            <input type="email" id="email" name="email" placeholder="jane@college.edu" required>
-            <span class="field-error">Please enter a valid email address.</span>
+          <div class="wl-row">
+            <div class="wl-field">
+              <label for="wlEmail">Email <span class="opt">(optional)</span></label>
+              <input type="email" id="wlEmail" name="email" placeholder="you@example.com" autocomplete="email">
+              <div class="wl-error-text">Enter a valid email address.</div>
+            </div>
+            <div class="wl-field">
+              <label for="wlPhone">Phone <span class="opt">(optional)</span></label>
+              <input type="tel" id="wlPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel">
+              <div class="wl-error-text">Enter a valid phone number.</div>
+            </div>
           </div>
 
-          <div class="field">
-            <label for="phone">Phone number <span class="req">*</span></label>
-            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
-            <span class="field-error">Please enter a valid phone number.</span>
+          <div class="wl-row">
+            <div class="wl-field">
+              <label for="wlCollege">College <span class="opt">(optional)</span></label>
+              <input type="text" id="wlCollege" name="college" placeholder="IIT Bombay" autocomplete="organization">
+              <div class="wl-error-text">Enter your college name.</div>
+            </div>
+            <div class="wl-field">
+              <label for="wlGradYear">Graduation year <span class="opt">(optional)</span></label>
+              <input type="number" id="wlGradYear" name="graduation_year" placeholder="2027" inputmode="numeric">
+              <div class="wl-error-text">Enter a realistic graduation year.</div>
+            </div>
           </div>
 
-          <div class="field">
-            <label for="gradYear">Year of graduation <span class="req">*</span></label>
-            <input type="year" id="gradYear" name="gradYear" placeholder="2028" required>
-            <span class="field-error">Please select your graduation year.</span>
+          <div class="wl-row">
+            <div class="wl-field">
+              <label for="wlLinkedin">LinkedIn <span class="opt">(optional)</span></label>
+              <input type="text" id="wlLinkedin" name="linkedin" placeholder="linkedin.com/in/yourname">
+              <div class="wl-error-text">Enter a valid LinkedIn URL.</div>
+            </div>
+            <div class="wl-field">
+              <label for="wlGithub">GitHub <span class="opt">(optional)</span></label>
+              <input type="text" id="wlGithub" name="github" placeholder="github.com/yourname">
+              <div class="wl-error-text">Enter a valid GitHub URL.</div>
+            </div>
           </div>
 
-          <div class="field field-wide">
-            <label for="collegeName">College name <span class="req">*</span></label>
-            <input type="text" id="collegeName" name="collegeName" placeholder="e.g. Indian Institute of Technology" required>
-            <span class="field-error">Please enter your college name.</span>
+          <div class="wl-field">
+            <label for="wlChallenge">What's the biggest career challenge you're facing right now? <span class="opt">(optional)</span></label>
+            <textarea id="wlChallenge" name="challenge" placeholder="e.g. I can't prove my skills to recruiters beyond my resume..."></textarea>
           </div>
 
-          <div class="field">
-            <label for="linkedin">LinkedIn profile</label>
-            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username">
-            <span class="field-error">Please enter a valid URL.</span>
-          </div>
+          <button type="submit" class="btn btn-primary wl-submit" id="wlSubmitBtn">
+            Join the Waitlist
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
 
-          <div class="field">
-            <label for="github">GitHub profile</label>
-            <input type="url" id="github" name="github" placeholder="https://github.com/username">
-            <span class="field-error">Please enter a valid URL.</span>
-          </div>
+          <div class="wl-status" id="wlStatus"></div>
+        </form>
 
-        <div class="field field-wide">
-            <label for="challenge">What's your biggest challenge in your career journey?</label>
-            <input type="text" id="challenge" name="challenge" placeholder="ex: Finding Mentors">
-        </div>
-        </div>
-
-      </div>
-      
-      </form>
-
-      <!-- ---------- SUCCESS PAGE ---------- -->
-      <div class="reg-page" data-page="success">
-        <div class="success-block">
-          <div class="success-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h2>This was a Demo of the SignUp Process. No data will be saved or used.</h2>
-          <p>Thanks for registering with Noviq. We'll review your profile and be in touch shortly.</p>
-        </div>
+        <p class="wl-note">Already on the list? <a href="../index.html">Back to home →</a></p>
       </div>
 
-      <!-- ---------- NAV BUTTONS ---------- -->
-      <div class="reg-actions">
-        <button type="submit" class="btn btn-primary" id="submitBtn" style="display:none;">Submit registration</button>
+      <div class="wl-success" id="wlSuccess">
+        <div class="wl-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="4 12 9 17 20 6"/></svg>
+        </div>
+        <h3>You're on the list.</h3>
+        <p>Thanks for joining the Noviq waitlist — we'll be in touch as early access opens up for your cohort.</p>
+        <p class="wl-note" style="margin-top:24px;"><a href="../index.html">Back to home →</a></p>
       </div>
-    </form>
 
-  </div>
-</section>
+    </div>
+  </section>
 
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../supabase.js"></script>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="../index.html" class="brand">
+          <span class="brand-mark">N</span>
+          Noviq
+        </a>
+        <p>The Career Operating System for ambitious students. Skills, mentorship and community — in one place.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="../index.html">About</a>
+          <a href="../index.html#solution">Features</a>
+          <a href="../index.html">Roadmap</a>
+          <a href="../index.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#">Twitter</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Noviq. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
 <script src="waitlist.js"></script>
+
 </body>
 </html>
